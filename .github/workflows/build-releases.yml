@@ -18,7 +18,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ${{ secrets.HUB_DOCKER_USERNAME }}/glibc
+          images: ${{ secrets.HUB_DOCKER_USERNAME }}/alpine-glibc
 
       -
         name: Release version
@@ -63,8 +63,8 @@ jobs:
           build-args: |
             GLIBC_VERSION=${{ env.glibc_version }}
           tags: |
-            ${{ secrets.HUB_DOCKER_USERNAME }}/glibc:${{ env.glibc_version }}
-            ${{ secrets.HUB_DOCKER_USERNAME }}/glibc:latest
-            registry.cn-hangzhou.aliyuncs.com/${{ secrets.HUB_DOCKER_USERNAME }}/glibc:${{ env.glibc_version }}
-            registry.cn-hangzhou.aliyuncs.com/${{ secrets.HUB_DOCKER_USERNAME }}/glibc:latest
+            ${{ secrets.HUB_DOCKER_USERNAME }}/alpine-glibc:${{ env.glibc_version }}
+            ${{ secrets.HUB_DOCKER_USERNAME }}/alpine-glibc:latest
+            registry.cn-hangzhou.aliyuncs.com/${{ secrets.HUB_DOCKER_USERNAME }}/alpine-glibc:${{ env.glibc_version }}
+            registry.cn-hangzhou.aliyuncs.com/${{ secrets.HUB_DOCKER_USERNAME }}/alpine-glibc:latest
           labels: ${{ steps.meta.outputs.labels }}
